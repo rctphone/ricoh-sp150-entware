@@ -22,6 +22,11 @@ define Package/ricoh_sp150/description
  CUPS filters for Ricoh SP150
 endef
 
+define Package/ricoh_sp150/postinst
+#!/bin/sh
+chmod 700 /opt/lib/cups/backend/usb
+endef
+
 define Package/ricoh_sp150/install
 	$(INSTALL_DIR) $(1)/opt/etc/cups/ppd
 	$(INSTALL_BIN) ./files/*.ppd $(1)/opt/etc/cups/ppd
